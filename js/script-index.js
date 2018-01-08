@@ -10,19 +10,19 @@ $(document).ready( function(){
 	};
    
 	printNews(); // con esto se ejecuta la función 
-
+    renderHighlightedRecipes(recipesArray);
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
-	renderHighlightedRecipes(recipesArray);
+	
 
-	var recetas = recipesArray['highlighted'];
+	/*var recetas = recipesArray['highlighted'];
 
-	$.each(recipesArray,function(i,recetas){ // la función each es un metodo para recorrer de la data. Es una función que busca el indice de la variable que se solicita en este caso highlighted.
+	$.each(recipesArray,function(i,recetas){ // la función each es un metodo para recorrer la data. Es una función que busca el indice de la variable que se solicita en este caso highlighted.
 		if(recetas.highlighted === true){
 			console.log(recetas);
 		}
 
-	});
+	});*/
 });
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
@@ -30,6 +30,12 @@ $(document).ready( function(){
 */
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes:', recipesArray);
+	
+	for(var i = 0; i < recipesArray.length; i++){ //recorre los datos del objeto, en este caso la data  
+		if(recipesArray[i].highlighted === true){// condición que la key highlighted el valor es verdarero.
+			renderRecipe(recipesArray[i]); //se ejetuca si es verdad la función que esta más abajo
+		}
+	}
 }
 
 /*
@@ -38,9 +44,23 @@ function renderHighlightedRecipes(recipesArray) {
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-recipe.html"
 */
-function renderRecipe(recipe) {
-	console.log('Voy a pintar la receta:recetas', recipe);
-}
+function renderRecipe(recipe) { //para ejecutar esta función debe cumplirse la condición de la función renderHighlightedRecipes
+	$('.list-recipes').append(
+			"<a class='item-recipe' href='#'>" +
+				"<span class='attribution'>" +
+					"<span class='title-recipe'>" + recipe.title + "</span>" +
+					"<span class='metadata-recipe'>" +
+						 "<span class='author-recipe'>" + recipe.source.name + "</span>" +
+						"<span class='bookmarks-recipe'>" +
+							"<span class='icon-bookmark'></span>" +
+						"</span>" +
+					"</span>" +
+				"</span>" +
+				"<img src='img/recipes/640x800/" + recipe.name + ".jpg'>" +
+			"</a>"
+		);
+		console.log('Voy a imprimir la receta: v', recipe);
+	}
 
 
 
@@ -59,5 +79,7 @@ function renderActivities(activitiesArray) {
 function renderActivity(recipe) {
 	
 }
+
+
 
 
