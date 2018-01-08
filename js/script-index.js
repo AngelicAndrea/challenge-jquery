@@ -8,8 +8,7 @@ $(document).ready( function(){
 	function printNews(){
 		$(".receta").html("<b>NUEVAS RECETAS</b>");
 	printNews(); // con esto se ejecuta la función 
-	renderHighlightedRecipes(recipesArray);
-	renderActivities(activities);
+	
  };
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	
@@ -22,6 +21,9 @@ $(document).ready( function(){
 		}
 
 	});*/
+	renderHighlightedRecipes(recipesArray);
+	renderActivities(activities);
+	renderActivity(recipe);
 });
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
@@ -83,7 +85,11 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
-	$("list-recipes")
+	
+	if(recipe <= 0){ // recipe es igual a i
+		$(".wrapper-message").hide();
+	}
+	
 }
 
 
