@@ -7,11 +7,10 @@ $(document).ready( function(){
 
 	function printNews(){
 		$(".receta").html("<b>NUEVAS RECETAS</b>");
-	};
-   
 	printNews(); // con esto se ejecuta la función 
-    renderHighlightedRecipes(recipesArray);
-
+	renderHighlightedRecipes(recipesArray);
+	renderActivities(activities);
+ };
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	
 
@@ -29,7 +28,7 @@ $(document).ready( function(){
 * marcado el atributo "highlighted" como TRUE
 */
 function renderHighlightedRecipes(recipesArray) {
-	console.log('Recipes:', recipesArray);
+	/*console.log('Recipes:', recipesArray);*/
 	
 	for(var i = 0; i < recipesArray.length; i++){ //recorre los datos del objeto, en este caso la data  
 		if(recipesArray[i].highlighted === true){// condición que la key highlighted el valor es verdarero.
@@ -59,7 +58,7 @@ function renderRecipe(recipe) { //para ejecutar esta función debe cumplirse la 
 				"<img src='img/recipes/640x800/" + recipe.name + ".jpg'>" +
 			"</a>"
 		);
-		console.log('Voy a imprimir la receta: v', recipe);
+		/*console.log('Voy a imprimir la receta: v', recipe);*/
 	}
 
 
@@ -68,7 +67,14 @@ function renderRecipe(recipe) { //para ejecutar esta función debe cumplirse la 
 * Función que se encarga de pintar todas las actividades
 */
 function renderActivities(activitiesArray) {
-	console.log('Activities: ', activitiesArray);
+	/*console.log('Activities: ', activitiesArray);*/
+
+	for(var i = 0; i < activitiesArray.length; i++){ //recorre la data de activities
+		console.log(i);
+
+		renderActivity(i) // llamo la función renderActivity y se le entrega el producto de el arreglo de activities
+	}
+
 }
 
 /*
@@ -77,7 +83,7 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
-	
+	$("list-recipes")
 }
 
 
