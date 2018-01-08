@@ -1,14 +1,26 @@
 $(document).ready( function(){
 
+		//función ocultar flecha 
+	$(".js-back").hide();
+
+	//función para impirmir nueva receta
+
+	function printNews(){
+		$(".receta").html("<b>NUEVAS RECETAS</b>");
+	};
+   
+	printNews(); // con esto se ejecuta la función 
+
+
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 
 
 
-	/*función ocultar flecha */
 
-	$(".js-back").hide();
+
 });
+
 
 
 /*
