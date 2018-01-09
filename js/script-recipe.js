@@ -1,5 +1,3 @@
-
-
 $(document).ready( function(){
    $(".js-back").show();
    $(".js-menu").hide();
@@ -11,8 +9,9 @@ $(document).ready( function(){
         var url = "index.html"
         $(location).attr("href",url);
     }
-
 });
+
+
 
 });
     
